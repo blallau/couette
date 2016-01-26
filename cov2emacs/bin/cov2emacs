@@ -15,9 +15,6 @@ from coverage.control import Coverage
 from coverage.misc import CoverageException
 from coverage.report import Reporter
 
-logging.basicConfig(level=logging.DEBUG, filename='.cov2emacs.log')
-LOG = logging
-
 
 class BasicReporter(Reporter):
     """
@@ -92,7 +89,6 @@ class Coverage2Emacs(object):
         Message can be Covered|Ignored|Missed
         """
         filename = os.path.abspath(filename)
-        LOG.debug('compile_mode filename: %s' % filename)
         fout = fout or sys.stdout
         reporter = BasicReporter(self.cov_file)
         # convert the report output to a more useful generator
@@ -132,7 +128,6 @@ class Coverage2Emacs(object):
 
     def filter_old_files(self, data_iter):
         cov_date = os.stat(self.cov_file).st_mtime
-        LOG.debug("FILTER COV MTIME %s " % cov_date)
         file_date = None
         prev_file = None
         for data in data_iter:
@@ -141,8 +136,6 @@ class Coverage2Emacs(object):
                 file_date = os.stat(filename).st_mtime
 
             if file_date > cov_date:
-                LOG.debug("FILTERING %s date: %s > %s" % (filename, file_date,
-                                                          cov_date))
                 # assume that file has been tweeked and data is wrong
                 data = list(data)
                 data[2] = "OLD"
@@ -182,7 +175,6 @@ def find_coverage_file(start_file, file_to_find='.coverage'):
         potential = os.path.join(find_cov, file_to_find)
 
         if is_older(potential, start_mtime):
-            LOG.debug('%s found' % potential)
             return potential
         else:
             raise Exception("File too old")
