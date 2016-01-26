@@ -1,4 +1,4 @@
-;;; pycoverage.el --- Support for coverage stats on Python 2.X  -*- lexical-binding: t; -*-
+;;; couette.el --- Support for coverage stats on Python 2.X  -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2016  bertrand
 
