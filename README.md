@@ -1,4 +1,4 @@
-# couette.el
+# couette
 
 An emacs minor mode for reporting inline on coverage stats for Python
 
@@ -11,6 +11,7 @@ An emacs minor mode for reporting inline on coverage stats for Python
 Put something like this in your .emacs
 
      (require 'linum)
+	 (require 'magit)
      (require 'couette)
 
      (defconst coverage-results-file ".coverage" "PYTHON Coverage results file.")
