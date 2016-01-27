@@ -219,7 +219,7 @@ def main(prog_args):
     parser = optparse.OptionParser()
     parser.add_option('--file', help='specify Python file to analyze')
     opt, args = parser.parse_args(prog_args)
-    python_file = opt.python_file
+    python_file = opt.file
 
     c2e = None
     if python_file:

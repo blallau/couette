@@ -97,7 +97,7 @@
 (defun couette-line-format (linenum)
   (cond
    ((member linenum couette-data)
-    (propertize " " 'face '(:background "red" :foreground "red")))
+    (propertize " " 'face '(:background "dark orange" :foreground "dark orange")))
    (couette-data
     ;; covered data
     (propertize " " 'face '(:background " " :foreground " ")))))
