@@ -103,7 +103,7 @@
     (propertize " " 'face '(:background " " :foreground " ")))))
 
 (defun couette-launch-pycov (filename)
-  (let* ((command (format "%s --python-file %s" couette-cov2emacs-cmd filename)))
+  (let* ((command (format "%s --file %s" couette-cov2emacs-cmd filename)))
     (message command)
     (shell-command-to-string command)))
 
